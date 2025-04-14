@@ -35,7 +35,7 @@ crew = Crew(
 
 # Streamlit app layout
 def main():
-    st.title("Email Content Writer Assistant")
+    st.title("Email Content Writer Agent")
 
     # Input section for user to specify the topic of the email
     topic = st.text_input("Enter the email topic:", " ")
