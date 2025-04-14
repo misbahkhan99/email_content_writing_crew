@@ -9,6 +9,7 @@ tasks = EmailContentTask()
 #obj 
 EmailWriter = agents.EmailWriter()
 AudienceAnalyst = agents.AudienceAnalyst()
+ComplianceChecker = agents.ComplianceChecker()
 
 
 #task
@@ -20,12 +21,15 @@ AnalyzeTargetAudienceTask = tasks.AnalyzeTargetAudienceTask(
     agent = AudienceAnalyst,
     context = [EmailWriterTask]
 )
-
+ComplianceCheckerTask = tasks.ComplianceCheckerTask(
+    agent = ComplianceChecker,
+    context = [AnalyzeTargetAudienceTask]
+)
 
 #crew
 crew = Crew(
-    agents = [EmailWriter,AudienceAnalyst],
-    tasks = [EmailWriterTask, AnalyzeTargetAudienceTask],
+    agents = [EmailWriter,AudienceAnalyst, ComplianceChecker],
+    tasks = [EmailWriterTask, AnalyzeTargetAudienceTask, ComplianceCheckerTask],
     verbose = True
 )
 

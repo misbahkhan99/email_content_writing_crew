@@ -25,3 +25,11 @@ class EmailContentWriter:
         )
 
     
+    def ComplianceChecker(self):
+        return Agent(
+            role = "Compliance Checker",
+            goal = "Review email content for compliance with legal requirements and company standards, ensuring all communications are appropriate and lawful.",
+            backstory = "Knowledgeable in legal and regulatory standards, ensuring all communications adhere to industry guidelines and company policies.",
+            verbose = True,
+            llm = llm
+        )
